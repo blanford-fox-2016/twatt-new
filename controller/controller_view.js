@@ -29,6 +29,30 @@ let action = function(target_url, callback){
     });
 }
 
+let actPost = function(value, target_url, callback){
+  var oauth = new OAuth.OAuth(
+    'https://api.twitter.com/oauth/request_token',
+    'https://api.twitter.com/oauth/access_token',
+    config.consumer_key, // consumerKey
+    config.consumer_secret, // consumerSecret
+    '1.0A',
+    null,
+    'HMAC-SHA1'
+  );
+
+  oauth.post(
+      target_url,
+    config.user_token, //test user token
+    config.user_secret, //test user secret
+    value,
+    'text',
+    function (e, data, res){
+      if (e) console.error(e);
+      callback(data)
+    });
+}
+
+
 
 module.exports = {
   mytweet: function(req, res, next){
@@ -56,12 +80,8 @@ module.exports = {
     })
   },
   updateStatus: function(req, res, next){
-    console.log('action');
-    console.log(req.query);
-    action(link_search+req.query.update, function(data) {
-      var tweet = JSON.parse(data)
-      console.log(tweet);
-      res.render('mytweet')
+    actPost(req.body.update, link_update+req.body.update, function(data) {
+      res.redirect('/mytweet')
     })
   }
 

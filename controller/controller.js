@@ -1,19 +1,12 @@
 'use strict'
 var OAuth = require('oauth');
 var config = require('../config/config.js')
-var Twit = require('twit')
 var link_user = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
 var link_home = 'https://api.twitter.com/1.1/statuses/home_timeline.json'
 var link_mention = 'https://api.twitter.com/1.1/statuses/mentions_timeline.json'
 var link_search = 'https://api.twitter.com/1.1/search/tweets.json?q='
 var link_update = 'https://api.twitter.com/1.1/statuses/update.json?status='
 
-var twit = new Twit({
-    consumer_key:         config.consumer_key,
-    consumer_secret:      config.consumer_secret,
-    access_token:         config.user_token,
-    access_token_secret:  config.user_secret
-})
 
 let action = function(target_url, callback){
   var oauth = new OAuth.OAuth(

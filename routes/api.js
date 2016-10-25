@@ -14,6 +14,7 @@ router.get('/twatt/mentions', controller.mentions)
 //view search by query
 router.get('/twatt/search', controller.search)
 
+//create new tweet
 router.post('/twatt/update', controller.updateStatus)
 
 

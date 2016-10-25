@@ -1,10 +1,11 @@
-# twatt-recent
+# twatt-new
 Using twitter api exercise with Node.js, Express & Postman
 
 ### User interface
 Route | HTTP | Description |
 ------|------|------------|
 `localhost:3000` | GET | View timeline
+`localhost:3000/update`| POST | Create new tweet
 `localhost:3000/mentions` | GET | View mentions
 `localhost:3000/mytweet` | GET | View user tweet
 `localhost:3000/search?q=` | GET | Search tweet filter by query(add keyword after equal sign)
@@ -15,6 +16,7 @@ Route | HTTP | Description |
 Route | HTTP | Description |
 ------|------|------------|
 `localhost:3000/api/twatt/mytweet` | GET | View tweet made by user
+`localhost:3000/api/twatt/update?status=` | POST | Create new tweet (add your new tweet after equal sign)
 `localhost:3000/api/twatt/timeline` | GET | View tweet on user timeline
 `localhost:3000/api/twatt/mentions` | GET | View mentions on user
 `localhost:3000/api/twatt/search?q=` | GET | Search tweet filter by query(add keyword after equal sign)
@@ -49,6 +51,7 @@ Route | HTTP | Description |
     └── search.jade
 
 9 directories, 15 files
+
 
 
 ```
