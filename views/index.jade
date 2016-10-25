@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .container
+    ul#myTabs.nav.nav-tabs
+      li.active
+        a(href='#new', data-toggle='tab', aria-expanded='true') New Tweet
+      li
+        a(href='#search', data-toggle='tab', aria-expanded='false') Search
+
+    #myTabContent.tab-content
+      #new.tab-pane.fade.active.in
+        .jumbotron
+          h1 Post a new tweet!
+          form(action='/search' method='get')
+            .form-group
+              label.control-label You tweet
+              .input-group.col-sm-12
+                textarea.form-control.col-sm-12(rows='3' name='tweet')
+                input-group-btn
+                  button#newbtn.btn.btn-primary(type='submit') Search
+      #search.tab-pane.fade
+        .jumbotron
+          h1 Search tweets
+          form(action='/search' method='get')
+            .form-group
+              label.control-label Your keyword
+              .input-group
+                input.form-control(type='text' name='q')
+                span.input-group-btn
+                  button.btn.btn-primary(type='submit') Search
+              
+    h3 Home Timeline
+    - for(var i = 0; i < data.length; i++)
+      .panel.panel-primary
+        .panel-heading
+          img.pull-left(src='#{data[i].user.profile_image_url}') 
+          h2.panel-title #{data[i].user.name} - @#{data[i].user.screen_name}`
+          .clearfix
+        .panel-body 
+          | #{data[i].text}
+          
+    
