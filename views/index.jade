@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    p #{title}
+    .row
+      form(class="col s12", method="post", action="/add")
+        input(type="text", name="input_tweet", placeholder="add new twitter here")
+        button(class="waves-effect waves-light btn #4caf50 green") add
