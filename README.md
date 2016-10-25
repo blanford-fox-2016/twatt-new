@@ -69,3 +69,8 @@ http://localhost:3000/api/search?q=KEYWORD
 ```
 http://localhost:3000/api/timeline
 ```
+## API for Create Status
+
+```
+http://localhost:3000/api/create?status=STATUS
+```

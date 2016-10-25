@@ -12,5 +12,7 @@ router.get('/search', controller.getSearchAPI)
 
 router.get('/timeline', controller.getTimelineAPI)
 
+router.post('/create', controller.createStatusAPI)
+
 
 module.exports = router;

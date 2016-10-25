@@ -12,6 +12,6 @@ router.get('/search', controller.getSearch)
 
 router.get('/timeline', controller.getTimeline)
 
-
+router.post('/createStatus', controller.createStatus)
 
 module.exports = router;

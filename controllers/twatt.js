@@ -1,6 +1,6 @@
 var OAuth = require('oauth')
-var Twit = require('twit')
 var auth = require('../config/config')
+var Twit = require('twit')
 
 var oauth = new OAuth.OAuth(
   'https://api.twitter.com/oauth/request_token',
@@ -26,10 +26,10 @@ var test = function (url, cb) {
 }
 
 var T = new Twit({
-  consumer_key: auth.twitterAuth.consumerKey,
-  consumer_secret: auth.twitterAuth.consumerSecret,
-  access_token: auth.twitterAuth.accessToken,
-  access_token_secret: auth.twitterAuth.accessTokenSecret,
+  consumer_key:         auth.twitterAuth.consumerKey,
+  consumer_secret:      auth.twitterAuth.consumerSecret,
+  access_token:         auth.twitterAuth.accessToken,
+  access_token_secret:  auth.twitterAuth.accessTokenSecret
 })
 
 module.exports = {
@@ -59,6 +59,13 @@ module.exports = {
       // res.json(JSON.parse(data))
       res.render('timeline', {title: "Timeline", timeline:JSON.parse(data)})
     })
+  },
+
+  createStatus: function (req, res) {
+    T.post('statuses/update', { status: req.body.status }, function(err, data, res) {
+
+    })
+    res.redirect('/')
   }
 
 }
