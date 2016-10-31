@@ -12,13 +12,13 @@ block content
       #new.tab-pane.fade.active.in
         .jumbotron
           h1 Post a new tweet!
-          form(action='/search' method='get')
+          form(action='/tweet' method='post')
             .form-group
               label.control-label You tweet
               .input-group.col-sm-12
                 textarea.form-control.col-sm-12(rows='3' name='tweet')
                 input-group-btn
-                  button#newbtn.btn.btn-primary(type='submit') Search
+                  button#newbtn.btn.btn-primary(type='submit') Tweet
       #search.tab-pane.fade
         .jumbotron
           h1 Search tweets

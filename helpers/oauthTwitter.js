@@ -23,16 +23,20 @@ module.exports = {
       });
   },
 
-  postData: (link, cb) => {
+  postData: (link, value, cb) => {
+    console.log(link+value);
+    // console.log(link);
     oauth.post(
-      link,
+      link+value,
       key.access_token,
       key.access_token_secret,
       value,
       'text',
       (e, data, res) => {
         if (e) console.error(e);
+        console.log(e);
         cb(data);
       });
+
   }
 }

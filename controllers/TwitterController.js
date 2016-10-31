@@ -26,5 +26,18 @@ module.exports = {
       data = JSON.parse(data).statuses;
       res.json(data);
     });
+  },
+
+  postTweet: (req, res, next) => {
+    let value = req.body.status;
+    let link = `https://api.twitter.com/1.1/statuses/update.json?status=`;
+    // res.send(value)
+    // console.log(req.body);
+    // console.log(value);
+    AuthTwitter.postData(link, value, (data) => {
+      console.log(data);
+      data = JSON.parse(data).statuses;
+      res.json(data);
+    });
   }
 }

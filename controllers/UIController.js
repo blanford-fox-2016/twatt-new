@@ -29,11 +29,12 @@ module.exports = {
   },
 
   postTweet: (req, res, next) => {
-    let link = `https: //api.twitter.com/1.1/statuses/update.json`;
-    let status = req.body.tweet;
+    let value = req.body.tweet;
+    let link = `https://api.twitter.com/1.1/statuses/update.json?status=`;
 
-    AuthTwitter.postData(link, (data) => {
-      data = JSON.parse(data).statuses;
+    AuthTwitter.postData(link, value,  (data) => {
+      data = JSON.parse(data);
+      // res.json(data);
       res.redirect('/my_timeline');
     });
   }

@@ -10,6 +10,7 @@ let routes = require('./routes/index');
 let twatt = require('./routes/twatt');
 let http = require('http');
 let oauth = require('oauth');
+const cors = require('cors');
 
 let app = express();
 
@@ -24,6 +25,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors());
 
 app.use('/', routes);
 app.use('/twatt', twatt);

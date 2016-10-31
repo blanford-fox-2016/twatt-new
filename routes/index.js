@@ -10,5 +10,6 @@ let ui = require('../controllers/UIController.js')
 router.get('/', ui.getHomeTimeline);
 router.get('/my_timeline', ui.getUserTimeline);
 router.get('/search', ui.searchTweet);
+router.post('/tweet', ui.postTweet);
 
 module.exports = router;
